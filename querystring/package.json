@@ -1,0 +1,9 @@
+{
+  "name"          : "querystring",
+  "description"   : "Provides utilities for dealing with query strings.",
+  "url"           : "https://github.com/lifesinger/dew/querystring",
+  "keywords"      : ["util"],
+  "author"        : "Frank Wang <lifesinger@gmail.com>",
+  "version"       : "1.0.1",
+  "src"           : "https://raw.github.com/lifesinger/dew/es5-safe/master/querystring.js"
+}

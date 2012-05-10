@@ -1,30 +1,21 @@
-/**
- * @preserve QueryString v1.0.1 | https://github.com/seajs/dew/tree/master/src/querystring | MIT Licensed
- */
+define(function(require, exports) {
 
-/**
- * @fileoverview This module provides utilities for dealing with query strings.
- * @author lifesinger@gmail.com (Frank Wang)
- *
- * @see Thanks to:
- *   - http://nodejs.org/docs/v0.4.7/api/querystring.html
- *   - http://developer.yahoo.com/yui/3/api/QueryString.html
- */
+  // QueryString
+  // ---------------
+  // This module provides utilities for dealing with query strings.
+  //
+  // Thanks to:
+  //  - http://nodejs.org/docs/v0.4.7/api/querystring.html
+  //  - http://developer.yahoo.com/yui/3/api/QueryString.html
 
-(function() {
 
-  var QueryString;
-
-  if (typeof exports !== 'undefined') {
-    QueryString = exports;
-  } else {
-    QueryString = this.QueryString = {};
-  }
+  var QueryString = exports;
 
   QueryString.version = '1.0.1';
 
 
   // Helpers
+
   var toString = Object.prototype.toString;
   var hasOwnProperty = Object.prototype.hasOwnProperty;
   var isArray = Array.isArray || function(val) {
@@ -180,4 +171,4 @@
     return o !== Object(o);
   }
 
-})();
+});

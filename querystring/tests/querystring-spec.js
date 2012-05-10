@@ -1,7 +1,7 @@
 
-(function() {
+define(function(require) {
 
-  var qs = QueryString;
+  var qs = require('../querystring');
 
   
   var normalCases = [
@@ -140,4 +140,4 @@
 
   });
 
-})();
+});
