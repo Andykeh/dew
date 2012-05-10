@@ -5,5 +5,6 @@
   "keywords"      : ["util"],
   "author"        : "Frank Wang <lifesinger@gmail.com>",
   "version"       : "1.0.2",
-  "src"           : "https://raw.github.com/lifesinger/dew/es5-safe/master/querystring.js"
+  "src"           : "https://raw.github.com/lifesinger/dew/master/dist/querystring/{{version}}/querystring-debug.js",
+  "min"           : "https://raw.github.com/lifesinger/dew/master/dist/querystring/{{version}}/querystring.js"
 }
