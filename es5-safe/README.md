@@ -1,11 +1,14 @@
-## ES5 Safe Shims
+
+# ES5 Safe Shim
 
 This module provides compatibility shims so that legacy JavaScript engines
 behave as closely as possible to ES5.
 
+---
+
 It provides the following methods:
 
-````javascript
+```js
 Function.prototype.bind
 Object.keys
 Array.isArray
@@ -20,7 +23,7 @@ Array.prototype.indexOf
 Array.prototype.lastIndexOf
 String.prototype.trim
 Date.now
-````
+```
 
 Please refer to [MDN](https://developer.mozilla.org/En/JavaScript/ECMAScript_5_support_in_Mozilla) for detail usages.
 
@@ -31,7 +34,7 @@ and elegant for old browsers.
 
 ## Test Cases
 
-http://seajs.github.com/dew/src/es5-safe/test/runner.html
+http://lifesinger.github.com/es5-safe/test/runner.html
 
 
 ## Thanks to
@@ -42,6 +45,7 @@ http://seajs.github.com/dew/src/es5-safe/test/runner.html
 1. http://perfectionkills.com/extending-built-in-native-objects-evil-or-not/
 1. https://gist.github.com/1120592
 1. https://code.google.com/p/v8/
+
 
 ## Copyright
 

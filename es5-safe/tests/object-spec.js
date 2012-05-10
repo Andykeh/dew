@@ -1,4 +1,4 @@
-(function() {
+define(function() {
 
   var IS_NATIVE = this['IS_NATIVE'];
 
@@ -14,7 +14,6 @@
       assertEquals(type, e.constructor);
     }
   }
-
 
   // http://code.google.com/p/v8/source/browse/trunk/test/mjsunit/object-create.js
   xdescribe('Object.create', function() {
@@ -137,4 +136,4 @@
 
   });
 
-})();
+});

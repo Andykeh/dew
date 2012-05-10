@@ -1,4 +1,4 @@
-(function() {
+define(function() {
 
   var global = this;
 
@@ -243,4 +243,4 @@
 
   });
 
-})();
+});

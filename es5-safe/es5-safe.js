@@ -1,23 +1,18 @@
-/**
- * @preserve The safe part of es5-shim v0.9.2 | https://github.com/seajs/dew/tree/master/src/es5-safe | MIT Licensed
- */
-
-/**
- * @fileoverview Provides compatibility shims so that legacy JavaScript
- * engines behave as closely as possible to ES5.
- *
- * @author lifesinger@gmail.com (Frank Wang)
- *
- * @see Thanks to:
- *   - http://es5.github.com/
- *   - http://kangax.github.com/es5-compat-table/
- *   - https://github.com/kriskowal/es5-shim
- *   - http://perfectionkills.com/extending-built-in-native-objects-evil-or-not/
- *   - https://gist.github.com/1120592
- *   - https://code.google.com/p/v8/
- */
-
 (function() {
+
+  // es5-safe
+  // ----------------
+  // Provides compatibility shims so that legacy JavaScript engines behave as
+  // closely as possible to ES5.
+  //
+  // Thanks to:
+  //  - http://es5.github.com/
+  //  - http://kangax.github.com/es5-compat-table/
+  //  - https://github.com/kriskowal/es5-shim
+  //  - http://perfectionkills.com/extending-built-in-native-objects-evil-or-not/
+  //  - https://gist.github.com/1120592
+  //  - https://code.google.com/p/v8/
+
 
   var OP = Object.prototype;
   var AP = Array.prototype;
@@ -33,7 +28,7 @@
 
   // ES-5 15.3.4.5
   // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind
-  FP.bind || (FP.bind = function (that) {
+  FP.bind || (FP.bind = function(that) {
     var target = this;
 
     // If IsCallable(func) is false, throw a TypeError exception.
@@ -99,8 +94,8 @@
   // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/keys
   // https://developer.mozilla.org/en/ECMAScript_DontEnum_attribute
   // http://msdn.microsoft.com/en-us/library/adebfyya(v=vs.94).aspx
-  Object.keys || (Object.keys = (function () {
-    var hasDontEnumBug = !{toString:''}.propertyIsEnumerable('toString');
+  Object.keys || (Object.keys = (function() {
+    var hasDontEnumBug = !{toString: ''}.propertyIsEnumerable('toString');
     var DontEnums = [
       'toString',
       'toLocaleString',
@@ -112,7 +107,7 @@
     ];
     var DontEnumsLength = DontEnums.length;
 
-    return function (o) {
+    return function(o) {
       if (o !== Object(o)) {
         throw new TypeError(o + ' is not an object');
       }
@@ -147,14 +142,14 @@
 
   // ES5 15.4.3.2
   // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/isArray
-  Array.isArray || (Array.isArray = function (obj) {
+  Array.isArray || (Array.isArray = function(obj) {
     return OP.toString.call(obj) === '[object Array]';
   });
 
 
   // ES5 15.4.4.18
   // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/array/foreach
-  AP.forEach || (AP.forEach = function (fn, context) {
+  AP.forEach || (AP.forEach = function(fn, context) {
     for (var i = 0, len = this.length >>> 0; i < len; i++) {
       if (i in this) {
         fn.call(context, this[i], i, this);
@@ -165,7 +160,7 @@
 
   // ES5 15.4.4.19
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map
-  AP.map || (AP.map = function (fn, context) {
+  AP.map || (AP.map = function(fn, context) {
     var len = this.length >>> 0;
     var result = new Array(len);
 
@@ -181,7 +176,7 @@
 
   // ES5 15.4.4.20
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/filter
-  AP.filter || (AP.filter = function (fn, context) {
+  AP.filter || (AP.filter = function(fn, context) {
     var result = [], val;
 
     for (var i = 0, len = this.length >>> 0; i < len; i++) {
@@ -199,7 +194,7 @@
 
   // ES5 15.4.4.16
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/every
-  AP.every || (AP.every = function (fn, context) {
+  AP.every || (AP.every = function(fn, context) {
     for (var i = 0, len = this.length >>> 0; i < len; i++) {
       if (i in this && !fn.call(context, this[i], i, this)) {
         return false;
@@ -211,7 +206,7 @@
 
   // ES5 15.4.4.17
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/some
-  AP.some || (AP.some = function (fn, context) {
+  AP.some || (AP.some = function(fn, context) {
     for (var i = 0, len = this.length >>> 0; i < len; i++) {
       if (i in this && fn.call(context, this[i], i, this)) {
         return true;
@@ -223,8 +218,8 @@
 
   // ES5 15.4.4.21
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduce
-  AP.reduce || (AP.reduce = function (fn /*, initial*/) {
-    if(typeof fn !== 'function') {
+  AP.reduce || (AP.reduce = function(fn /*, initial*/) {
+    if (typeof fn !== 'function') {
       throw new TypeError(fn + ' is not an function');
     }
 
@@ -259,8 +254,8 @@
 
   // ES5 15.4.4.22
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/reduceRight
-  AP.reduceRight || (AP.reduceRight = function (fn /*, initial*/) {
-    if(typeof fn !== 'function') {
+  AP.reduceRight || (AP.reduceRight = function(fn /*, initial*/) {
+    if (typeof fn !== 'function') {
       throw new TypeError(fn + ' is not an function');
     }
 
@@ -294,7 +289,7 @@
 
   // ES5 15.4.4.14
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/indexOf
-  AP.indexOf || (AP.indexOf = function (value, from) {
+  AP.indexOf || (AP.indexOf = function(value, from) {
     var len = this.length >>> 0;
 
     from = Number(from) || 0;
@@ -315,7 +310,7 @@
 
   // ES5 15.4.4.15
   // https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/indexOf
-  AP.lastIndexOf || (AP.lastIndexOf = function (value, from) {
+  AP.lastIndexOf || (AP.lastIndexOf = function(value, from) {
     var len = this.length >>> 0;
 
     from = Number(from) || len - 1;
@@ -343,7 +338,7 @@
   // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/trim
   // http://blog.stevenlevithan.com/archives/faster-trim-javascript
   // http://jsperf.com/mega-trim-test
-  SP.trim || (SP.trim = (function () {
+  SP.trim || (SP.trim = (function() {
 
     // http://perfectionkills.com/whitespace-deviations/
     var whiteSpaces = [
@@ -398,7 +393,7 @@
 
   // ES5 15.9.4.4
   // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/now
-  Date.now || (Date.now = function () {
+  Date.now || (Date.now = function() {
     return +new Date;
   });
 

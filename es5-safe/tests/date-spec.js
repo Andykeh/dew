@@ -1,4 +1,4 @@
-(function() {
+define(function() {
 
   function assertEquals(expected, actual) {
     if (isNaN(expected) && isNaN(actual)) return; // assertEqual(NaN, NaN)
@@ -18,4 +18,4 @@
 
   });
 
-})();
+});

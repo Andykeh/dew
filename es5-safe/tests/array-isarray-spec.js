@@ -1,4 +1,4 @@
-(function() {
+define(function() {
 
   function assertEquals(expected, actual) {
     expect(actual).toEqual(expected);
@@ -40,4 +40,4 @@
 
   });
 
-})();
+});

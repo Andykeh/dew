@@ -3,14 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <title>Test Runner</title>
-
-<link rel="stylesheet" href="../../../support/jasmine/jasmine.css">
-<script src="../../../support/jasmine/jasmine.js"></script>
-<script src="../../../support/jasmine/jasmine-html.js"></script>
-
 <script>
-
-  var IS_NATIVE = true;
+  this.IS_NATIVE = true;
 
   if (location.search.indexOf('native') === -1) {
     if (typeof console !== 'undefined') {
@@ -43,28 +37,36 @@
     Date.now = null;
 
 
-    IS_NATIVE = false;
+    this.IS_NATIVE = false;
   }
 </script>
-
 <script src="../es5-safe.js"></script>
 
-<script src="function-bind-spec.js"></script>
-<script src="object-spec.js"></script>
-<script src="array-isarray-spec.js"></script>
-<script src="array-iteration-spec.js"></script>
-<script src="array-reduce-spec.js"></script>
-<script src="array-indexing-spec.js"></script>
-<script src="string-trim-spec.js"></script>
-<script src="date-spec.js"></script>
+<script src="http://modules.seajs.org/seajs/1.1.0/sea.js"></script>
+<script>
+  seajs.use('jasmine/1.1.0/jasmine-html', function(data) {
 
+    seajs.use('./es5-safe-spec', function() {
+      getJasmineEnv().execute();
+    });
+
+    function getJasmineEnv() {
+      var env = jasmine.getEnv();
+      env.updateInterval = 1000;
+
+      var trivialReporter = new jasmine.TrivialReporter();
+
+      env.addReporter(trivialReporter);
+
+      env.specFilter = function(spec) {
+        return trivialReporter.specFilter(spec);
+      };
+
+      return env;
+    }
+  });
+</script>
 </head>
 <body>
-
-<script>
-  jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
-  jasmine.getEnv().execute();
-</script>
-
 </body>
 </html>
