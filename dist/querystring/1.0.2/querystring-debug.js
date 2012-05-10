@@ -1,4 +1,4 @@
-define(function(require, exports) {
+define("#querystring/1.0.2/querystring-debug", [], function(require, exports) {
 
   // QueryString
   // ---------------
